@@ -1,11 +1,34 @@
 import './App.css'
 import './styles/header.css'
 import { Cartao } from './components/Cartao'
-// import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
 import './styles/Cartao.css'
+
+  
 function App() {
-  // const [contador, setContador] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+  //simular carregamento da pagina
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); 
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="loading">
+        
+        <img
+          src="./onepieceloading.png" 
+          alt="onepiece"
+          className="loading-spinner" 
+        />
+        
+      </div>
+    );
+  }
 
   return (
     <>
